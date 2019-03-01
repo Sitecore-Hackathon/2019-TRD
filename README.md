@@ -9,6 +9,7 @@ The Hackathon site can be found at http://www.sitecorehackathon.org/sitecore-hac
 The purpose of this repository is to provide a sample which shows how to structure the Hackathon submissions.
 
 
+
 ## Entry Submission Requirements 
 
 All teams are required to submit the following as part of their entry submission on or before the end of the Hackathon on **Friday March 1st 2019 at 8PM EST**. The modules should be based on [Sitecore 9.1 (Initial Release)](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/91/Sitecore_Experience_Platform_91_Initial_Release.aspx).
