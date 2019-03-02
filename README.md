@@ -1,39 +1,57 @@
-![Hackathon Logo](documentation/images/hackathon.png?raw=true "Hackathon Logo")
+![Alt](images/hackathon.png "ScHackation")
+# Sitecore Hackathon 2019 Entry Documentation
 
-# Submission Boilerplate
+## Category: `Best use of SPE to help Content authors and Marketers`
 
-Welcome to Sitecore Hackathon 2019.
+## Entry Title: `Sitecore Bulk Operator`
 
-The Hackathon site can be found at http://www.sitecorehackathon.org/sitecore-hackathon-2019/
-
-The purpose of this repository is to provide a sample which shows how to structure the Hackathon submissions.
-
+### <b>Brief Description</b>: Sitecore Powershell Extension (SPE) scripts that allow Content Authors and Marketers to perform bulk operaitons on a selection of data items. This module allows future addition of more operations to be executed on the selection of data by installing a package that contains the new operation script only
 
 
-## Entry Submission Requirements 
+### <b>Prequisites</b>
+Sitecore Powershell Extensions v5
 
-All teams are required to submit the following as part of their entry submission on or before the end of the Hackathon on **Friday March 1st 2019 at 8PM EST**. The modules should be based on [Sitecore 9.1 (Initial Release)](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/91/Sitecore_Experience_Platform_91_Initial_Release.aspx).
+### <b>Installation</b>
+To install this module, all you have to do is install the Sitecore package provided which will install several new SPE scripts under `/sitecore/system/Modules/PowerShell/Script Library/Custom/Library`
 
-**Failure to meet any of the requirements will result in automatic disqualification.** Please reach out to any of the organisers or judges if you require any clarification.
+### <b>Features</b>
+Once installed this module, at the moment, will provide the following features:
+    
+- Selectors:
+    * `Select Path` to search in
+    * `Select Templates` to filter
+    * `Select Items` to perform operations on (checklist)
+- Operators (more can be easily added):
+    * `Index Items`
+    * `Copy Items`
+    * `Delete Items`
+    * `Publish Items`
 
-- Sitecore 9.1 (Initial Release) Module (Module install package)
-   - An installation Sitecore Package (`.zip` or `.update`)
+To start using any of the above operators:
+- In Sitecore Desktop, click on the start button
+- Click on `Powershell Toolbox` > `Data Management` > `Sitecore Bulk Operator Wizard`
+- You will start getting a series of prompts that you will need to fill to provide the needed data to perform the required operation
 
-- Module code in a public Git source repository. We will be judging (amongst other things):
-  - Cleanliness of code
-  - Commenting where necessary
-  - Code Structure
-  - Standard coding standards & naming conventions
+Once an operation is complete you will be prompted to start the wizard again to perform another operation or the same one on a different selection of data
 
-- Precise and Clear Installation Instructions document (1 – 2 pages)
-- Module usage documentation on [Readme.md](documentation) file on the Git Repository (2 – 5 pages)
-  - Module Purpose
-  - Module Sitecore Hackathon Category
-  - How does the end user use the Module?
-  - Screenshots, etc.
+#### Example for running a Copy Items Operation
+![Alt](documentation/images/Desktop.png "Desktop")
+![Alt](documentation/images/SelectOperation.png "Select Operations")
+![Alt](documentation/images/SelectPath.png "Select Path")
+![Alt](documentation/images/SelectTemplates.png "Select Templates")
+![Alt](documentation/images/SelectItems.png "Select Items")
+![Alt](documentation/images/SelectCopyTarget.png "Select Copy Target")
+![Alt](documentation/images/Again.png "Again")
 
-- Create a 2 – 10 minutes video explaining the module’s functionality (A link to youtube video)
+### <b>Adding a new operator</b>
+In order to add a new operator at any time after installing this module:
+- Navigate to `/sitecore/system/Modules/PowerShell/Script Library/Custom/Library/Bulk Operator/Operations`
+- Add a new `PowerShell Script` item or copy and existing one
+- Edit the script according to your requirements, however the only required part is the input param at the top of the script:
+```
+param($params);
+$itemsString = $($params.items);
+$items = $itemsString.split('|')
+```
+- You will have to use the `$items` variable that contains a list of selected item IDs
 
-  - What problem was solved
-  - How did you solve it
-  - What is the end result

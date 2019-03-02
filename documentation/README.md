@@ -1,71 +1,57 @@
-# Documentation
+![Alt](images/hackathon.png "ScHackation")
+# Sitecore Hackathon 2019 Entry Documentation
 
-The documentation for this years Hackathon must be provided as a readme in Markdown format as part of your submission. 
+## Category: `Best use of SPE to help Content authors and Marketers`
 
-You can find a very good reference to Github flavoured markdown reference in [this cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). If you want something a bit more WYSIWYG for editing then could use [StackEdit](https://stackedit.io/app) which provides a more user friendly interface for generating the Markdown code. Those of you who are [VS Code fans](https://code.visualstudio.com/docs/languages/markdown#_markdown-preview) can edit/preview directly in that interface too.
+## Entry Title: `Sitecore Bulk Operator`
 
-Examples of things to include are the following.
+### <b>Brief Description</b>: Sitecore Powershell Extension (SPE) scripts that allow Content Authors and Marketers to perform bulk operaitons on a selection of data items. This module allows future addition of more operations to be executed on the selection of data by installing a package that contains the new operation script only
 
-## Summary
 
-**Category:** Hackathon Category
+### <b>Prequisites</b>
+Sitecore Powershell Extensions v5
 
-What is the purpose of your module? What problem does it solve and how does it do that?
+### <b>Installation</b>
+To install this module, all you have to do is install the Sitecore package provided which will install several new SPE scripts under `/sitecore/system/Modules/PowerShell/Script Library/Custom/Library`
 
-## Pre-requisites
+### <b>Features</b>
+Once installed this module, at the moment, will provide the following features:
+    
+- Selectors:
+    * `Select Path` to search in
+    * `Select Templates` to filter
+    * `Select Items` to perform operations on (checklist)
+- Operators (more can be easily added):
+    * `Index Items`
+    * `Copy Items`
+    * `Delete Items`
+    * `Publish Items`
 
-Does your module rely on other Sitecore modules or frameworks?
+To start using any of the above operators:
+- In Sitecore Desktop, click on the start button
+- Click on `Powershell Toolbox` > `Data Management` > `Sitecore Bulk Operator Wizard`
+- You will start getting a series of prompts that you will need to fill to provide the needed data to perform the required operation
 
-- List any dependencies
-- Or other modules that must be installed
-- Or services that must be enabled/configured
+Once an operation is complete you will be prompted to start the wizard again to perform another operation or the same one on a different selection of data
 
-## Installation
+#### Example for running a Copy Items Operation
+![Alt](images/Desktop.png "Desktop")
+![Alt](images/SelectOperation.png "Select Operations")
+![Alt](images/SelectPath.png "Select Path")
+![Alt](images/SelectTemplates.png "Select Templates")
+![Alt](images/SelectItems.png "Select Items")
+![Alt](images/SelectCopyTarget.png "Select Copy Target")
+![Alt](images/Again.png "Again")
 
-Provide detailed instructions on how to install the module, and include screenshots where necessary.
-
-1. Use the Sitecore Installation wizard to install the [package](#link-to-package)
-2. ???
-3. Profit
-
-## Configuration
-
-How do you configure your module once it is installed? Are there items that need to be updated with settings, or maybe config files need to have keys updated?
-
-Remember you are using Markdown, you can provide code samples too:
-
-```xml
-<?xml version="1.0"?>
-<!--
-  Purpose: Configuration settings for my hackathon module
--->
-<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/">
-  <sitecore>
-    <settings>
-      <setting name="MyModule.Setting" value="Hackathon" />
-    </settings>
-  </sitecore>
-</configuration>
+### <b>Adding a new operator</b>
+In order to add a new operator at any time after installing this module:
+- Navigate to `/sitecore/system/Modules/PowerShell/Script Library/Custom/Library/Bulk Operator/Operations`
+- Add a new `PowerShell Script` item or copy and existing one
+- Edit the script according to your requirements, however the only required part is the input param at the top of the script:
 ```
+param($params);
+$itemsString = $($params.items);
+$items = $itemsString.split('|')
+```
+- You will have to use the `$items` variable that contains a list of selected item IDs
 
-## Usage
-
-Provide documentation  about your module, how do the users use your module, where are things located, what do icons mean, are there any secret shortcuts etc.
-
-Please include screenshots where necessary. You can add images to the `./images` folder and then link to them from your documentation:
-
-![Hackathon Logo](images/hackathon.png?raw=true "Hackathon Logo")
-
-You can embed images of different formats too:
-
-![Deal With It](images/deal-with-it.gif?raw=true "Deal With It")
-
-And you can embed external images too:
-
-![Random](https://placeimg.com/480/240/any "Random")
-
-## Video
-
-Please provide a video highlighing your Hackathon module submission and provide a link to the video. Either a [direct link](https://www.youtube.com/watch?v=EpNhxW4pNKk) to the video, upload it to this documentation folder or maybe upload it to Youtube...
-
-[![Sitecore Hackathon Video Embedding Alt Text](https://img.youtube.com/vi/EpNhxW4pNKk/0.jpg)](https://www.youtube.com/watch?v=EpNhxW4pNKk)
