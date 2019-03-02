@@ -5,8 +5,9 @@
 
 ## Entry Title: `Sitecore Bulk Operator`
 
-### <b>Brief Description</b>: Sitecore Powershell Extension (SPE) scripts that allow Content Authors and Marketers to perform bulk operaitons on a selection of data items. This module allows future addition of more operations to be executed on the selection of data by installing a package that contains the new operation script only
+### <b>Brief Description/Purpose</b>: Sitecore Powershell Extension (SPE) scripts that allow Content Authors and Marketers to perform bulk operaitons on a selection of data items. This module allows future addition of more operations to be performed on the selection of data by installing a package that contains the new operation scripts only.
 
+Video description: https://youtu.be/FvNdTv4urx4
 
 ### <b>Prequisites</b>
 Sitecore Powershell Extensions v5
