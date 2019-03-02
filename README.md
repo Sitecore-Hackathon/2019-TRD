@@ -1,4 +1,4 @@
-![Alt](images/hackathon.png "ScHackation")
+![Alt](documentation/images/hackathon.png "ScHackation")
 # Sitecore Hackathon 2019 Entry Documentation
 
 ## Category: `Best use of SPE to help Content authors and Marketers`
